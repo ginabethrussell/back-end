@@ -12,8 +12,9 @@ function getClassBy(filter){
     return db(tests).where(filter).first();
 }
 
-function updateClass(changes, id){
-    return db('tests').where('id', id).update(changes);
+async function updateClass(changes, id){
+    await db('tests').where('id', id).update(changes);
+    return getClassById(id);
 }
 
 function removeClass(id){
