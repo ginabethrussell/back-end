@@ -1,8 +1,18 @@
 
-exports.up = function(knex) {
-  
+exports.up = async function(knex) {
+  await knex.schema.createTable('tests', (table) => {
+      table.increments('id')
+      table.text('name').notNull
+      table.text('type')
+      table.text('date')
+      table.text('duration')
+      table.text('intensity')
+      table.text('location');
+      table.text('numberOfRegisteredAttendees')
+      table.integer('maxClassSize')
+  })
 };
 
-exports.down = function(knex) {
-  
+exports.down = async function(knex) {
+  await knex.schema.dropTableIfExists('tests');
 };
