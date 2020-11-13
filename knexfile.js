@@ -5,7 +5,7 @@ module.exports = {
 		client: "sqlite3",
 		useNullAsDefault: true,
 		connection: {
-			filename: "./database/anywhere-test.db3",
+			filename: "./data/anywhere-test.db3",
 		},
 		pool: {
 			afterCreate: (conn, done) => {
@@ -13,17 +13,17 @@ module.exports = {
 			},
 		},
 		migrations: {
-			directory: "./database/migrations",
+			directory: "./data/migrations",
 		},
 		seeds: {
-			directory: "./database/seeds",
+			directory: "./data/seeds",
 		},
 	},
 	development: {
 		client: "sqlite3",
 		useNullAsDefault: true,
 		connection: {
-			filename: "./database/anywherefitness.db3",
+			filename: "./data/anywherefitness.db3",
 		},
 		pool: {
 			afterCreate: (conn, done) => {
@@ -31,10 +31,10 @@ module.exports = {
 			},
 		},
 		migrations: {
-			directory: "./database/migrations",
+			directory: "./data/migrations",
 		},
 		seeds: {
-			directory: "./database/seeds",
+			directory: "./data/seeds",
 		},
 	},
 
@@ -58,7 +58,7 @@ module.exports = {
 		client: "sqlite3",
 		useNullAsDefault: true,
 		connection: {
-			filename: "./database/anywherefitness.db3",
+			filename: "./data/anywherefitness.db3",
 		},
 		pool: {
 			afterCreate: (conn, done) => {
@@ -66,10 +66,10 @@ module.exports = {
 			},
 		},
 		migrations: {
-			directory: "./database/migrations",
+			directory: "./data/migrations",
 		},
 		seeds: {
-			directory: "./database/seeds",
+			directory: "./data/seeds",
 		},
 	},
 };
