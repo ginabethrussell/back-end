@@ -1,67 +1,75 @@
 // Update with your config settings.
 
 module.exports = {
-
-  testing: {
-    client: 'sqlite3',
-    useNullAsDefualt: true,
-    connection: {
-      filename: './dev.sqlite3'
-    },
-    pool: {
+	testing: {
+		client: "sqlite3",
+		useNullAsDefault: true,
+		connection: {
+			filename: "./database/anywhere-test.db3",
+		},
+		pool: {
 			afterCreate: (conn, done) => {
 				conn.run("PRAGMA foreign_keys = ON", done);
 			},
-  }},
-
-  development: {
-    client: 'sqlite3',
-    useNullAsDefualt: true,
-    connection: {
-      filename: './dev.sqlite3'
-    },
-    pool: {
+		},
+		migrations: {
+			directory: "./database/migrations",
+		},
+		seeds: {
+			directory: "./database/seeds",
+		},
+	},
+	development: {
+		client: "sqlite3",
+		useNullAsDefault: true,
+		connection: {
+			filename: "./database/anywherefitness.db3",
+		},
+		pool: {
 			afterCreate: (conn, done) => {
 				conn.run("PRAGMA foreign_keys = ON", done);
 			},
-  }},
+		},
+		migrations: {
+			directory: "./database/migrations",
+		},
+		seeds: {
+			directory: "./database/seeds",
+		},
+	},
 
-  staging: {
-    client: 'postgresql',
-    useNullAsDefualt: true,
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
-  },
+	staging: {
+		client: "postgresql",
+		connection: {
+			database: "my_db",
+			user: "username",
+			password: "password",
+		},
+		pool: {
+			min: 2,
+			max: 10,
+		},
+		migrations: {
+			tableName: "knex_migrations",
+		},
+	},
 
-  production: {
-    client: 'postgresql',
-    useNullAsDefualt: true,
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
+	production: {
+		client: "sqlite3",
+		useNullAsDefault: true,
+		connection: {
+			filename: "./database/anywherefitness.db3",
+		},
+		pool: {
 			afterCreate: (conn, done) => {
 				conn.run("PRAGMA foreign_keys = ON", done);
 			},
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
-  }
-
-}};
+		},
+		migrations: {
+			directory: "./database/migrations",
+		},
+		seeds: {
+			directory: "./database/seeds",
+		},
+	},
+};
