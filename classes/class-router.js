@@ -29,7 +29,12 @@ router.get('/:id', async (req, res, next) => {
 router.put('/:id', async (req, res, next) => {
     try{
        const updateClass = await Classes.updateClass(req.body, req.params.id);
-       return res.status(201).json(updateClass);
+       if(!updateClass){
+           return res.status(400).json({
+               message: "invalid ID"
+           })
+       }
+       return res.status(200).json(updateClass);
     } catch(error){
         next(error);
     }

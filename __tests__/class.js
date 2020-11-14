@@ -57,4 +57,32 @@ describe('Testing the classes endpoints', () => {
             expect(res.statusCode).toBe(201)
             expect(res.type).toBe('application/json')
     })
+    test('Triggers PUT class error', async () => {
+        const res = await request(server).put('/classes/200').send({
+            name: 'Swimming',
+                type: 'Cardio', 
+                date: 'Wednesday',
+                duration: '1 hour',
+                intensity: 'Difficult',
+                location: `122 Somewhere street`,
+                numberOfRegisteredAttendees: 12,
+                maxClassSize: 30
+          })
+          expect(res.statusCode).toBe(400)
+    })
+    test('Updates a class', async () => {
+        const res = await request(server).put('/classes/3').send({
+                name: 'Triathlon',
+                type: 'Cardio', 
+                date: 'Wednesday',
+                duration: '1 hour',
+                intensity: 'Difficult',
+                location: `122 Somewhere street`,
+                numberOfRegisteredAttendees: 12,
+                maxClassSize: 30
+        })
+        expect(res.statusCode).toBe(200)
+        expect(res.type).toBe('application/json')
+        expect(res.body.name).toBe('Triathlon')
+    })
 })
