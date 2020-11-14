@@ -22,7 +22,7 @@ function removeClass(id){
 }
 
 function addClass(add){
-    return db('classes')
+    return db('classes').insert(add)
 }
 
 module.exports = {
@@ -30,5 +30,6 @@ module.exports = {
     getClasses,
     getClassById,
     updateClass,
-    removeClass
+    removeClass,
+    addClass
 }

@@ -46,4 +46,13 @@ router.delete('/:id', async (req, res, next) => {
     }
 })
 
+router.post('/', async (req, res, next) => {
+    try{
+        const newClass = await Classes.addClass(req.body);
+        return res.status(201).json(newClass)
+    } catch(error){
+        next(error)
+    }
+})
+
 module.exports = router;
