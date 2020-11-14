@@ -85,4 +85,8 @@ describe('Testing the classes endpoints', () => {
         expect(res.type).toBe('application/json')
         expect(res.body.name).toBe('Triathlon')
     })
+    test('Deletes a class', async () => {
+        const res = await request(server).delete('/classes/3')
+        expect(res.statusCode).toBe(204)
+    })
 })
