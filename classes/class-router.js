@@ -13,14 +13,14 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
     try{
-        const Class = await Classes.getClassById(req.params.id);
-        if(!Class){
+        const getClass = await Classes.getClassById(req.params.id);
+        if(!getClass){
             return res.status(400).json({
                 message: "Invalid ID"
             })
         }
 
-        return res.status(200).json(Class);
+        return res.status(200).json(getClass);
     } catch(error){
         next(error)
     }
@@ -49,6 +49,11 @@ router.delete('/:id', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
     try{
         const newClass = await Classes.addClass(req.body);
+        if(!newClass.name){
+            return res.status(400).json({
+                message: "Please input the name of the class"
+            })
+        }
         return res.status(201).json(newClass)
     } catch(error){
         next(error)

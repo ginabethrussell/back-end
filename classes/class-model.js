@@ -21,8 +21,9 @@ function removeClass(id){
     return db('classes').where('id', id).del();
 }
 
-function addClass(add){
-    return db('classes').insert(add)
+async function addClass(add){
+    const [id] = await db('classes').insert(add);
+    return getClassById(id)
 }
 
 module.exports = {
