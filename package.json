@@ -4,7 +4,7 @@
   "description": "[Anywhere Fitness Product Vision Document](https://docs.google.com/document/d/1L1JVphCe2c_sGx6uVDPsbYPItEUYmxhJa3mQ3-lKMv8/edit?usp=sharing)",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=testing jest --detectOpenHandles",
+    "test": "cross-env NODE_ENV=testing jest",
     "server": "cross-env NODE_ENV=development nodemon index.js",
     "start": "node index.js"
   },

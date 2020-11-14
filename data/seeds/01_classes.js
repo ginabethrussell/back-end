@@ -1,7 +1,7 @@
 const faker = require('faker');
 
 exports.seed = async function(knex) {
-      await knex('tests').insert([
+      await knex('classes').insert([
         {
           name: 'Cycling',
           type: 'Cardio', 
