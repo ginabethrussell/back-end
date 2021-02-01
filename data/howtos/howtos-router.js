@@ -24,6 +24,7 @@ router.get("/howtos/:id", (req, res) => {
 })
 
 router.post("/howtos", (req,res) => {
+    
   const newHowto = db.createHowto({
       title: req.body.title,
       creator_id: req.body.creator_id,

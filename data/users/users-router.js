@@ -25,7 +25,9 @@ router.get("/users/:id", (req, res) => {
 
 router.post("/users", (req,res) => {
     const newUser = db.createUser({
-        name: req.body.name,
+        username: req.body.username,
+        password:  req.body.password,
+        role: req.body.role
     })
     // 201 means a created resource
     res.status(201).json(newUser);
