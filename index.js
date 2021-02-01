@@ -1,7 +1,16 @@
-const server = require('./server');
+const express = require("express");
+const usersRouter = require("./data/users/users-router");
+const howtosRouter = require("./data/howtos/howtos-router");
 
-const port = process.env.PORT || 5000;
+const server = express();
+server.use(express.json());
+server.use(usersRouter);
+server.use(howtosRouter);
 
-server.listen(port, () => {
-    console.log(`Server listening on port ${port}`)
+server.get("/", (req,res) => {
+    res.json({message: "Hello from the How-To Server!"})
+})
+
+server.listen(8080, () => {
+    console.log("server started");
 })
