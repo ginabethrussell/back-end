@@ -1,7 +1,7 @@
 const express = require('express')
 const users = require('./users')
 
-const db = require("./database");
+const db = require("../../database");
 
 const router = express.Router()
 
@@ -31,3 +31,4 @@ router.post("/users", (req,res) => {
     res.status(201).json(newUser);
 })
 
+module.exports = router;

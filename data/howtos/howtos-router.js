@@ -1,7 +1,9 @@
 const express = require("express");
 const howtos = require("./howtos");
 
-const db = require("./database");
+const db = require("../../database");
+
+const router = express.Router()
 
 router.get("/howtos", (req, res) => {
   const howtos = db.getHowtos()
@@ -64,3 +66,5 @@ router.put("/howtos/:id", (req, res) => {
         })
     }
 })
+
+module.exports = router;

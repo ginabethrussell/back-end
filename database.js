@@ -1,5 +1,5 @@
-const usersData = require("./data/users");
-const howtosData = require("./data/howtos");
+const usersData = require("./data/users/users");
+const howtosData = require("./data/howtos/howtos");
 
 const users = usersData.users;
 const howtos = howtosData.howtos;
