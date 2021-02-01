@@ -1,2 +1,2 @@
 # Backend site deployed with Heroku
-[https://git.heroku.com/gbr-how-to.git](https://git.heroku.com/gbr-how-to.git)
+[https://gbr-how-to.herokuapp.com/](https://gbr-how-to.herokuapp.com/)

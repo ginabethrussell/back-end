@@ -10,6 +10,7 @@ server.use(usersRouter);
 server.use(howtosRouter);
 
 const port = process.env.PORT || 5000;
+
 server.get("/", (req,res) => {
     res.json({message: "Hello from the How-To Server!"})
 })
