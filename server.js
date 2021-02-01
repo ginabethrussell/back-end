@@ -1,20 +1,16 @@
-const express = require('express');
-const helmet = require('helmet');
-const cors = require('cors');
-const classRouter = require('./classes/class-router');
+const express = require("express");
+const usersRouter = require("./data/users/users-router");
+const howtosRouter = require("./data/howtos/howtos-router");
 
 const server = express();
-
 server.use(express.json());
-server.use(helmet());
-server.use(cors());
-server.use('/classes', classRouter);
+server.use(usersRouter);
+server.use(howtosRouter);
 
-server.use((err, req, res, next) => {
-    console.log(err);
-    return res.status(500).json({
-        message: "A server error has occurred"
-    })
+server.get("/", (req,res) => {
+    res.json({message: "Hello from the How-To Server!"})
 })
 
-module.exports = server;
+server.listen(8080, () => {
+    console.log("server started");
+})
