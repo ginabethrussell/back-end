@@ -73,7 +73,7 @@ function updateHowto(id, data) {
 }
 
 function deleteHowto(id) {
-    howtos = howtos.filter(howto => howto.id.toString() !== id);
+    howtos = howtos.filter(howto => howto.id !== Number(id));
     return howtos
 }
 
