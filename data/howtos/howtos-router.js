@@ -12,15 +12,8 @@ router.get("/howtos", (req, res) => {
 
 router.get("/howtos/:id", (req, res) => {
   const id = req.params.id
-  const howto = db.getHowtoById(id);
-  if (howto) {
-      res.json(howto);
-  } else {
-      res.status(404).json({
-          message: "How-to not found"
-      })
-  }
-  
+  const updatedHowtos = howtos.filter(howto => howto.id !== id);
+  res.json(updatedHowtos); 
 })
 
 router.post("/howtos", (req,res) => {
