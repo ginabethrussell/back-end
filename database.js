@@ -50,7 +50,7 @@ function createHowto(data){
 }
 
 function updateHowto(id, data) {
-    const index = howtos.findIndex(howto => howto.id === id)
+    const index = howtos.findIndex(howto => howto.id === Number(id))
     howtos[index] = { ...data };
     return howtos[index]; 
 }
