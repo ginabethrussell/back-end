@@ -8,11 +8,11 @@ const welcomeRouter = require("./data/welcome/welcome-router");
 require('dotenv').config();
 
 const server = express();
-
+server.options('*', cors());
 server.use(express.json());
 server.use(helmet());
 server.use(cors());
-server.options('*', cors());
+
 server.use(usersRouter);
 server.use(howtosRouter);
 server.use(welcomeRouter);
