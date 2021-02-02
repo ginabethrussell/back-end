@@ -55,10 +55,14 @@ function createHowto(data){
 
 function updateHowto(id, data) {
     const index = howtos.findIndex(howto => howto.id === id)
-    howtos[index] = {
+    // howtos[index] = {
+    //     ...howtos[index], 
+    //     ...data
+    // }
+    howtos.splice(index, 1, {
         ...howtos[index], 
         ...data
-    }
+    });
     return howtos[index]
 }
 
