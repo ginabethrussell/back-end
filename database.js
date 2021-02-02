@@ -33,18 +33,6 @@ function loginUser(data){
     }
 }
 
-function updateUser(id, data) {
-    const index = users.findIndex(user => user.id === id)
-    users[index] = {
-        ...users[index], 
-        ...data
-    }
-    return users[index]
-}
-
-function deleteUser(id) {
-    users = users.filter(user => user.id != id);
-}
 
 function getHowtos() {
     return howtos

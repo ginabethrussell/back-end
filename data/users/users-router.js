@@ -5,11 +5,13 @@ const db = require("../../database");
 
 const router = express.Router()
 
+// returns all users
 router.get("/users", (req, res) => {
     const users = db.getUsers()
     res.json(users)
 })
 
+// returns a single user by id 
 router.get("/users/:id", (req, res) => {
     const id = req.params.id
     const user = db.getUserById(id);
@@ -24,6 +26,7 @@ router.get("/users/:id", (req, res) => {
     
 })
 
+// signup a new user
 router.post("/users", (req,res) => {
     const newUser = db.createUser({
         username: req.body.username,

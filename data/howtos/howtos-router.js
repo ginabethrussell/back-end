@@ -36,10 +36,10 @@ router.post("/howtos", (req,res) => {
   res.status(201).json(newHowto);
 })
 
-router.delete("/howtos/:id", async (req, res) => {
+router.delete("/howtos/:id", (req, res) => {
     const id = req.params.id;
-    const updatedHowtos = await db.deleteHowto(id);
-    res.status(200).json(updatedHowtos);
+    const updatedHowtos = db.deleteHowto(id);
+    res.status(204).end();
 })
 
 router.put("/howtos/:id", (req, res) => {
