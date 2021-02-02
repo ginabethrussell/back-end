@@ -11,7 +11,7 @@ const server = express();
 
 server.use(express.json());
 server.use(helmet());
-// server.use(cors());
+server.use(cors());
 server.options('*', cors());
 server.use(usersRouter);
 server.use(howtosRouter);
