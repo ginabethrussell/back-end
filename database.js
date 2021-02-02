@@ -11,7 +11,7 @@ function getUsers() {
 
 function getUserById(id){ 
     console.log(id)
-    return users.find(user => user.id === id)
+    return users.find(user => user.id.toString() === id)
 }
 
 function createUser(data){
