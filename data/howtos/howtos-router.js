@@ -1,6 +1,4 @@
 const express = require("express");
-const howtos = require("./howtos");
-
 const db = require("../../database");
 
 const router = express.Router()
@@ -25,7 +23,7 @@ router.get("/howtos/:id", (req, res) => {
 
 router.post("/howtos", (req,res) => {
     
-  const newHowto = db.createHowto({
+  const newHowtos = db.createHowto({
       title: req.body.title,
       creator_id: req.body.creator_id,
       author: req.body.author,
@@ -33,13 +31,20 @@ router.post("/howtos", (req,res) => {
       date_created: Date.now()
   })
   // 201 means a created resource
-  res.status(201).json(newHowto);
+  res.status(201).json(newHowtos);
 })
 
 router.delete("/howtos/:id", (req, res) => {
     const id = req.params.id;
-    const updatedHowtos = db.deleteHowto(id);
-    res.status(204).end();
+    const howto = db.getHowtoById(id);
+    if (howto){
+        const deletedHowto = db.deleteHowto(id)
+        return res.status(200).json(deletedHowto);
+    }else {
+        return res.status(404).json({
+            message: "How-to not found"
+        })
+    }
 })
 
 router.put("/howtos/:id", (req, res) => {

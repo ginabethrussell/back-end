@@ -1,8 +1,8 @@
 const usersData = require("./data/users/users");
 const howtosData = require("./data/howtos/howtos");
 
-const users = usersData.users;
-const howtos = howtosData.howtos;
+let users = usersData.users;
+let howtos = howtosData.howtos;
 
 function getUsers() {
     console.log(typeof(users));
@@ -43,12 +43,14 @@ function getHowtoById(id){
 }
 
 function createHowto(data){
+    const lastId = howtos[howtos.length - 1].id
     const payload = {
-        id: String(howtos.length + 1),
+        id: (lastId + 1),
         ...data,
     }
     howtos.push(payload)
-    return payload
+    console.log('howtos', howtos)
+    return howtos
 }
 
 function updateHowto(id, data) {
@@ -61,8 +63,9 @@ function updateHowto(id, data) {
 }
 
 function deleteHowto(id) {
+    const deletedHowto = howtos.find(howto => howto.id === Number(id));
     howtos = howtos.filter(howto => howto.id !== Number(id));
-    return howtos
+    return deletedHowto;   
 }
 
 module.exports = {
