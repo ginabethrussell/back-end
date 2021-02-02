@@ -38,7 +38,9 @@ router.post("/howtos", (req,res) => {
 
 router.delete("/howtos/:id", (req, res) => {
     const id = req.params.id;
+    console.log('id', id)
     const howto = db.getHowtoById(id);
+    console.log('howto', howto)
     if (howto){
         db.deleteHowto(id)
         res.status(204).end();
