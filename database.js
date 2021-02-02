@@ -5,12 +5,10 @@ let users = usersData.users;
 let howtos = howtosData.howtos;
 
 function getUsers() {
-    console.log(typeof(users));
     return users
 }
 
 function getUserById(id){ 
-    console.log(id)
     return users.find(user => user.id.toString() === id)
 }
 
@@ -33,7 +31,6 @@ function loginUser(data){
     }
 }
 
-
 function getHowtos() {
     return howtos
 }
@@ -46,10 +43,9 @@ function createHowto(data){
     const lastId = howtos[howtos.length - 1].id
     const payload = {
         id: (lastId + 1),
-        ...data,
+        ...data
     }
     howtos.push(payload)
-    console.log('howtos', howtos)
     return howtos
 }
 

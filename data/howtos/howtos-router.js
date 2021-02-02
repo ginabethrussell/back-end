@@ -11,18 +11,16 @@ router.get("/howtos", (req, res) => {
 router.get("/howtos/:id", (req, res) => {
     const id = req.params.id
     const howto = db.getHowtoById(id);
-    console.log(howto, id);
     if (howto) {
         res.json(howto);
     } else {
         res.status(404).json({
-            message: "User not found"
+            message: "How-to not found"
         })
     }
 })
 
-router.post("/howtos", (req,res) => {
-    
+router.post("/howtos", (req,res) => {   
   const newHowtos = db.createHowto({
       title: req.body.title,
       creator_id: req.body.creator_id,
@@ -30,7 +28,7 @@ router.post("/howtos", (req,res) => {
       paragraphs: req.body.paragraphs,
       date_created: Date.now()
   })
-  // 201 means a created resource
+ 
   res.status(201).json(newHowtos);
 })
 
