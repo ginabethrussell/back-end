@@ -30,10 +30,10 @@ router.post("/users", (req,res) => {
         role: req.body.role
     })
     // 201 means a created resource
-    const responseBody = { data: {
+    const responseBody = {
         user: newUser,
         token: "QpwL5tke4Pnpja7X4"
-    }}
+    }
     res.status(201).json(responseBody);
 })
 
