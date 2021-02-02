@@ -23,6 +23,16 @@ function createUser(data){
     return payload
 }
 
+function loginUser(data){
+    const username = data.username;
+    const foundUser = users.filter(user => user.username === username);
+    if (foundUser.length > 0){
+        return foundUser[0]
+    }else {
+        return null
+    }
+}
+
 function updateUser(id, data) {
     const index = users.findIndex(user => user.id === id)
     users[index] = {
@@ -70,6 +80,7 @@ module.exports = {
     getUsers,
     getUserById,
     createUser,
+    loginUser,
     updateUser, 
     deleteUser,
     getHowtos,

@@ -38,4 +38,21 @@ router.post("/users", (req,res) => {
     res.status(201).json(responseBody);
 })
 
+router.post("/users/login", (req,res) => {
+    const loggedInUser = db.loginUser({
+        username: req.body.username,
+        password:  req.body.password,
+    })
+    if(loggedInUser){
+        const responseBody = {
+            id: loggedInUser.id,
+            token: "QpwL5tke4Pnpja7X4"
+        }
+        res.status(200).json(responseBody);
+    }else {
+        res.status(404).json({ message: 'User not found.'})
+    }
+    
+})
+
 module.exports = router;
