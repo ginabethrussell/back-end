@@ -63,8 +63,7 @@ function updateHowto(id, data) {
         ...howtos[index], 
         ...data
     });
-    // return howtos[index]
-    return howtos;
+    return howtos[index] 
 }
 
 function deleteHowto(id) {
