@@ -73,7 +73,7 @@ function updateHowto(id, data) {
 }
 
 function deleteHowto(id) {
-    howtos = howtos.filter(howto => howto.id != id)
+    howtos = howtos.filter(howto => howto.id != id);
 }
 
 module.exports = {

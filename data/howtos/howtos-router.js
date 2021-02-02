@@ -11,9 +11,16 @@ router.get("/howtos", (req, res) => {
 })
 
 router.get("/howtos/:id", (req, res) => {
-  const id = req.params.id
-  const updatedHowtos = howtos.filter(howto => howto.id !== id);
-  res.json(updatedHowtos); 
+    const id = req.params.id
+    const howto = db.getHowtoById(id);
+    console.log(howto, id);
+    if (howto) {
+        res.json(howto);
+    } else {
+        res.status(404).json({
+            message: "User not found"
+        })
+    }
 })
 
 router.post("/howtos", (req,res) => {
@@ -31,17 +38,8 @@ router.post("/howtos", (req,res) => {
 
 router.delete("/howtos/:id", (req, res) => {
     const id = req.params.id;
-    console.log('id', id)
-    const howto = db.getHowtoById(id);
-    console.log('howto', howto)
-    if (howto){
-        db.deleteHowto(id)
-        res.status(204).end();
-    }else {
-        res.status(404).json({
-            message: "How-to not found"
-        })
-    }
+    db.deleteHowto(id);
+    res.status(204).end();
 })
 
 router.put("/howtos/:id", (req, res) => {
