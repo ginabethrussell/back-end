@@ -26,7 +26,8 @@ router.post("/howtos", (req,res) => {
       creator_id: req.body.creator_id,
       author: req.body.author,
       paragraphs: req.body.paragraphs,
-      date_created: Date.now()
+      date_created: Date.now(),
+      image: req.body.image
   })
  
   res.status(201).json(newHowtos);
@@ -55,6 +56,7 @@ router.put("/howtos/:id", (req, res) => {
             creator_id: req.body.creator_id,
             author: req.body.author,
             paragraphs: req.body.paragraphs,
+            image: req.body.image
         })
         res.json(updatedHowto);
     }else {
