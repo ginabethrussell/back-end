@@ -10,7 +10,8 @@ function getUsers() {
 }
 
 function getUserById(id){ 
-    return users.find(user => user.id === Number(id))
+    console.log(id)
+    return users.find(user => user.id === id)
 }
 
 function createUser(data){

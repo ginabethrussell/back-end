@@ -13,6 +13,7 @@ router.get("/users", (req, res) => {
 router.get("/users/:id", (req, res) => {
     const id = req.params.id
     const user = db.getUserById(id);
+    console.log(user, id);
     if (user) {
         res.json(user);
     } else {
