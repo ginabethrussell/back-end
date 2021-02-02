@@ -38,7 +38,7 @@ router.post("/howtos", (req,res) => {
 
 router.delete("/howtos/:id", (req, res) => {
     const id = req.params.id;
-    db.deleteHowto(id);
+    const updatedHowtos = db.deleteHowto(id);
     res.status(204).end();
 })
 

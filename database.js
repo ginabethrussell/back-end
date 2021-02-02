@@ -43,7 +43,7 @@ function updateUser(id, data) {
 }
 
 function deleteUser(id) {
-    users = users.filter(user => user.id != id)
+    users = users.filter(user => user.id != id);
 }
 
 function getHowtos() {
@@ -73,7 +73,8 @@ function updateHowto(id, data) {
 }
 
 function deleteHowto(id) {
-    howtos = howtos.filter(howto => howto.id != id);
+    howtos = howtos.filter(howto => howto.id.toString() !== id);
+    return howtos
 }
 
 module.exports = {
