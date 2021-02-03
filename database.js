@@ -61,6 +61,11 @@ function deleteHowto(id) {
     return deletedHowto;   
 }
 
+function increaseHowtoLikes(id) {
+    const index = howtos.findIndex(howto => howto.id === Number(id))
+    howtos[index] = { ...howtos[index], likes: howtos[index].likes + 1 };
+    return howtos[index]; 
+}
 module.exports = {
     getUsers,
     getUserById,
@@ -70,5 +75,6 @@ module.exports = {
     getHowtoById,
     createHowto,
     updateHowto, 
-    deleteHowto
+    deleteHowto,
+    increaseHowtoLikes
 }

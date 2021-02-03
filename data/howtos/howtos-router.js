@@ -68,4 +68,16 @@ router.put("/howtos/:id", (req, res) => {
     }
 })
 
+router.put("/howtos/:id/likes", (req,res) => {   
+    const id = req.params.id;
+    const howto = db.getHowtoById(id);
+    if (howto){
+        const updatedHowto = db.increaseHowtoLikes(id);
+        res.json(updatedHowto);
+    }else {
+        res.status(404).json({
+            message: "How-to not found"
+        })
+    }
+  })
 module.exports = router;
