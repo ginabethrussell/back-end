@@ -43,6 +43,7 @@ function createHowto(data){
     const lastId = howtos[howtos.length - 1].id
     const payload = {
         id: (lastId + 1),
+        likes: 0,
         ...data
     }
     howtos.push(payload)
