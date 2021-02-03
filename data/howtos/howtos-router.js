@@ -49,6 +49,7 @@ router.delete("/howtos/:id", (req, res) => {
 router.put("/howtos/:id", (req, res) => {
     const id = req.params.id;
     const howto = db.getHowtoById(id);
+    console.log('howtos before update', db.getHowtos());
     if (howto){
         const updatedHowto = db.updateHowto(id,{
             ...howto,
@@ -58,6 +59,7 @@ router.put("/howtos/:id", (req, res) => {
             paragraphs: req.body.paragraphs,
             image: req.body.image
         })
+        console.log('howtos after update', db.getHowtos());
         res.json(updatedHowto);
     }else {
         res.status(404).json({

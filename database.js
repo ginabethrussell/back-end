@@ -1,8 +1,8 @@
 const usersData = require("./data/users/users");
 const howtosData = require("./data/howtos/howtos");
 
-let users = usersData.users;
-let howtos = howtosData.howtos;
+let users = [...usersData.users];
+let howtos = [...howtosData.howtos];
 
 function getUsers() {
     return users
