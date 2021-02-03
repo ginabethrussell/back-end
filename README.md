@@ -22,6 +22,7 @@
 |GET /howtos | Requests howtos | Returns an array of howtos |
 |POST /howtos | Adds a howto| Returns an array of howtos |
 |PUT /howtos/:id | Updates a howto | Returns updated howto |
+|PUT /howtos/:id/likes | Adds one to likes | Returns updated howto |
 |DELETE /howtos/:id | Deletes a howto | Returns deleted howto |
 
 ### User Data
@@ -37,6 +38,8 @@
 |id | An auto generated number identifying the howto|
 |creator_id | number identifying id of creator user|
 |title | A required string|
-|date | an auto generated string from Date.now()|
+|date_created | an auto generated string|
 |author | string|
+|image | string|
+|likes | number|
 |paragraphs | array of strings|
